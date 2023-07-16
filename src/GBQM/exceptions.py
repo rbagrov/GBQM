@@ -1,4 +1,4 @@
-from cli import Colors
+from .cli import Colors
 
 
 class MissingConfig(Exception):

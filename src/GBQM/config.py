@@ -1,4 +1,4 @@
-from exceptions import MissingConfig, IncorrectID
+from .exceptions import MissingConfig, IncorrectID
 
 
 class Config:

@@ -2,10 +2,10 @@ from google.cloud import bigquery
 from typing import List
 from google.oauth2 import service_account
 
-from config import Config
-from exceptions import TooManyTables
-from cli import Colors
-from auth import SA
+from .config import Config
+from .exceptions import TooManyTables
+from .cli import Colors
+from .auth import SA
 
 
 class Base:

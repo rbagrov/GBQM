@@ -3,10 +3,10 @@ import sys
 from typing import Optional
 from typing import Sequence
 
-from cli import add_table1, add_table2, credentials
-from version import VERSION
-from gbq import Table, Delta
-from exceptions import MissingConfig
+from .cli import add_table1, add_table2, credentials
+from .version import VERSION
+from .gbq import Table, Delta
+from .exceptions import MissingConfig
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
