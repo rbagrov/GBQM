@@ -13,7 +13,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     argv = argv if argv is not None else sys.argv[1:]
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("-V", "--version", action="version", version=f"GBQM {VERSION}")
+    parser.add_argument("-V", "--version", action="version", version=f"kaisia {VERSION}")
 
     add_table1(parser)
     add_table2(parser)
