@@ -1,6 +1,8 @@
 from google.cloud import bigquery
 from typing import List
 from google.oauth2 import service_account
+from rich.console import Console
+from rich.table import Table as Tbl
 
 from .config import Config
 from .exceptions import TooManyTables
@@ -44,11 +46,16 @@ class SchemaCompareMixin:
 
 class SchemaReprMixin:
     def to_terminal(self):
+        table = Tbl(title="Schema Diff")
+        table.add_column("Field", justify="right", style="cyan", no_wrap=True)
+        table.add_column("Type", style="magenta")
+        table.add_column("Mode", justify="right", style="green")
+
         repr = [field.to_api_repr() for field in self.diff]
         for i in repr:
-            print(
-                f"{Colors.OKGREEN}{i['name']}{Colors.ENDC} {Colors.BOLD}- {Colors.ENDC}{Colors.OKCYAN}{i['mode']} {Colors.OKGREEN}{i['type']}{Colors.ENDC}"
-            )
+            table.add_row(f"{i['name']}", f"{i['type']}", f"{i['mode']}")
+        console = Console()
+        console.print(table)
 
 
 class Delta(SchemaReprMixin, SchemaCompareMixin):

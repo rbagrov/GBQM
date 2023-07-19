@@ -6,6 +6,7 @@ authors = [
 ]
 dependencies = [
     "google-cloud-bigquery",
+    "rich",
 ]
 description = "GCP Big Query Migration helper"
 readme = "README.md"
